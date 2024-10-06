@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
 
-project (hello_world)
+project (calculator)
 
-add_executable(hello_world main.cpp)
+set(SOURCES
+    src/main.cpp
+    src/calculator.cpp
+)
+
+add_executable(calculator ${SOURCES})
+
+target_include_directories(calculator
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
