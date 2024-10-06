@@ -1,7 +1,11 @@
 #include <iostream>
 
+#include "calculator.h"
+
 int main() {
-   std::cout << "Hello World!" << std::endl;
+   Calculator calculator;
+
+   std::cout << calculator.Add(1, 2) << std::endl;
 
    return 0;
 }
