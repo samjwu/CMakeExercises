@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project (calculator)
 
-add_library(calculator STATIC
+add_library(calculator SHARED
     src/calculator.cpp
 )
 
