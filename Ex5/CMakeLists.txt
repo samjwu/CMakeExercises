@@ -28,7 +28,8 @@ install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/
     DESTINATION include)
 
 install(TARGETS calculator
-    DESTINATION lib)
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin)
 
 install(TARGETS addition
     DESTINATION bin)
