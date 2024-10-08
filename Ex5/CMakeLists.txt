@@ -22,7 +22,9 @@ target_link_libraries(addition
         calculator
 )
 
-set(CMAKE_INSTALL_PREFIX "C:/Users/Public/calculator")
+if(WIN32)
+    set(CMAKE_INSTALL_PREFIX "C:/Users/Public/calculator")
+endif()
 
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ 
     DESTINATION include)
