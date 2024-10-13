@@ -8,7 +8,7 @@ endif()
 
 project (calculator)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" CACHE STRING "Set C++ Compiler Flags" FORCE)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror" CACHE STRING "Set C++ Compiler Flags" FORCE)
 
 add_library(calculator SHARED
     src/calculator.cpp
