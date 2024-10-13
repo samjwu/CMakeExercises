@@ -14,6 +14,8 @@ add_library(calculator SHARED
     src/calculator.cpp
 )
 
+target_compile_features(calculator PRIVATE cxx_std_11) 
+
 target_include_directories(calculator
     PUBLIC
         ${PROJECT_SOURCE_DIR}/include
