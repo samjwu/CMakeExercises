@@ -1,15 +1,11 @@
+#include "boost_util.h"
+
 #include <iostream>
 
-#include "calculator.h"
-
 int main() {
-   int a, b;
+   BoostUtil boost_util;
 
-   std::cin >> a >> b;
-
-   Calculator calculator;
-
-   std::cout << calculator.Add(a, b) << std::endl;
+   std::cout << boost_util.DoesFileExist("Test.txt");
 
    return 0;
 }
