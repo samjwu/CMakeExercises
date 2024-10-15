@@ -8,6 +8,8 @@ endif()
 
 project(exercise)
 
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror" CACHE STRING "Set C++ Compiler Flags" FORCE)
+
 add_subdirectory(calculator)
 add_subdirectory(calculator_headeronly)
 add_subdirectory(example)
