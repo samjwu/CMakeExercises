@@ -16,3 +16,4 @@ CMakeUserPresets.json
 *.exe
 *.a
 *.dll
+build/
