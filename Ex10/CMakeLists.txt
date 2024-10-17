@@ -8,15 +8,14 @@ endif()
 
 project(exercise)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror" CACHE STRING "Set C++ Compiler Flags" FORCE)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE STRING "Set C++ Compiler Flags" FORCE)
+
+set(exercise_VERSION_MAJOR 0)
+set(exercise_VERSION_MINOR 1)
+set(exercise_VERSION_PATCH 0)
+set(exercise_VERSION "${exercise_VERSION_MAJOR}.${exercise_VERSION_MINOR}.${exercise_VERSION_PATCH}")
 
 configure_file(include/cmake_path.h.in ${PROJECT_BINARY_DIR}/include/cmake_path.h @ONLY)
-
-set (exercise_VERSION_MAJOR 0)
-set (exercise_VERSION_MINOR 1)
-set (exercise_VERSION_PATCH 0)
-set (exercise_VERSION "${exercise_VERSION_MAJOR}.${exercise_VERSION_MINOR}.${exercise_VERSION_PATCH}")
-
 configure_file(include/version.h.in ${PROJECT_BINARY_DIR}/include/version.h)
 
 set(SOURCES
@@ -31,3 +30,5 @@ target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${PROJECT_BINARY_DIR}/include
 )
+
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Werror)
