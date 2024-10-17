@@ -1,0 +1,6 @@
+#ifndef __CMAKE_PATH_H__
+#define __CMAKE_PATH_H__
+
+const char* cmake_path = "@CMAKE_SOURCE_DIR@";
+
+#endif
