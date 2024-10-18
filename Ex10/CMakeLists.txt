@@ -8,8 +8,6 @@ endif()
 
 project(exercise)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" CACHE STRING "Set C++ Compiler Flags" FORCE)
-
 set(exercise_VERSION_MAJOR 0)
 set(exercise_VERSION_MINOR 1)
 set(exercise_VERSION_PATCH 0)
