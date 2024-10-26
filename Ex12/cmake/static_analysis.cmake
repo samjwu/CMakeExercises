@@ -20,6 +20,8 @@ endif()
 
 function(add_static_analysis _target _sources)
     if (CPPCHECK_FOUND)
+        message(STATUS "Calling add_static_analysis for target: ${_target}")
+
         # store list of include directories associated with the current source directory into include_dirs
         get_property(include_dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
         foreach(dir ${include_dirs})
@@ -31,6 +33,8 @@ function(add_static_analysis _target _sources)
 
         # exclude from default build
         set_target_properties(${_target}_static_analysis PROPERTIES EXCLUDE_FROM_ALL TRUE)
+
+        message(STATUS "ALL_ANALYSIS_TARGETS in function: ${ALL_ANALYSIS_TARGETS}")
 
         # add new static analysis target to ALL_ANALYSIS_TARGETS list
         list(APPEND ALL_ANALYSIS_TARGETS "${_target}_static_analysis")

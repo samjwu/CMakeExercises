@@ -18,6 +18,8 @@ set(ALL_ANALYSIS_TARGETS)
 
 add_subdirectory(calculator)
 
+message(STATUS "ALL_ANALYSIS_TARGETS: ${ALL_ANALYSIS_TARGETS}")
+
 if(CPPCHECK_FOUND)
     add_custom_target(static_analysis)
     ADD_DEPENDENCIES(static_analysis ${ALL_ANALYSIS_TARGETS})
