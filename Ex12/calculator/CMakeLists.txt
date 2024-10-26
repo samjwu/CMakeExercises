@@ -2,6 +2,7 @@ project(calculator)
 
 set(SOURCES
     src/calculator.cpp
+    src/main.cpp
 )
 
 include(${CMAKE_SOURCE_DIR}/cmake/static_analysis.cmake)
