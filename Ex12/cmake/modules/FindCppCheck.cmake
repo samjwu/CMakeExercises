@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------
 # Find the cppcheck binary and set up arguments for it.
 #
-# This script searches for the 'cppcheck' program and sets up the necessary 
+# Searches for the 'cppcheck' program and sets up the necessary 
 # arguments to configure its usage in the project. It also utilizes 
 # FindPackageHandleStandardArgs to handle standard package finding behavior.
 #
