@@ -14,7 +14,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
 find_package(CppCheck)
 
 # declare var to be defined in custom module
-set(ALL_ANALYSIS_TARGETS)
+set(ALL_ANALYSIS_TARGETS "" CACHE STRING "List of all static analysis targets")
 
 add_subdirectory(calculator)
 

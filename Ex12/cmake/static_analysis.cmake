@@ -3,7 +3,7 @@ if(NOT CPPCHECK_FOUND)
 endif()
 
 #----------------------------------------------------------------------------------------------------------
-# Function to add a static analysis target using CppCheck.
+# Macro to add a static analysis target using CppCheck.
 # 
 # Creates a custom target for performing static analysis on a given set of source files
 # using the CppCheck tool. It gathers include directories for the current source directory, appends
@@ -18,9 +18,13 @@ endif()
 # To catch potential issues in code before deployment.
 #----------------------------------------------------------------------------------------------------------
 
-function(add_static_analysis _target _sources)
+macro(add_static_analysis _target _sources)
     if (CPPCHECK_FOUND)
         message(STATUS "Calling add_static_analysis for target: ${_target}")
+
+        if(NOT DEFINED ALL_ANALYSIS_TARGETS)
+            set(ALL_ANALYSIS_TARGETS "" PARENT_SCOPE)
+        endif()
 
         # store list of include directories associated with the current source directory into include_dirs
         get_property(include_dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
@@ -30,17 +34,18 @@ function(add_static_analysis _target _sources)
         
         # add new static analysis target
         add_custom_target(${_target}_static_analysis)
+        message(STATUS "Created static analysis target: ${_target}_static_analysis")
 
         # exclude from default build
         set_target_properties(${_target}_static_analysis PROPERTIES EXCLUDE_FROM_ALL TRUE)
-
-        message(STATUS "ALL_ANALYSIS_TARGETS in function: ${ALL_ANALYSIS_TARGETS}")
-
+        
         # add new static analysis target to ALL_ANALYSIS_TARGETS list
         list(APPEND ALL_ANALYSIS_TARGETS "${_target}_static_analysis")
+        message(STATUS "Appended to ALL_ANALYSIS_TARGETS: ${_target}_static_analysis")
 
         # make ALL_ANALYSIS_TARGETS variable available in parent directory
         set(ALL_ANALYSIS_TARGETS "${ALL_ANALYSIS_TARGETS}" PARENT_SCOPE)
+        message(STATUS "ALL_ANALYSIS_TARGETS after setting: ${ALL_ANALYSIS_TARGETS}")
 
         # split cli arguments from CPPCHECK_ARG into individual components in tmp_args
         separate_arguments(tmp_args UNIX_COMMAND ${CPPCHECK_ARG})
@@ -54,4 +59,4 @@ function(add_static_analysis _target _sources)
             VERBATIM)
         message("Adding cppcheck static analysis target for ${_target}")
     endif()
-endfunction()
+endmacro()
