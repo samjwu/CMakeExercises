@@ -53,7 +53,7 @@ macro(add_static_analysis _target _sources)
         # add cppcheck command to static analysis target
         add_custom_command(TARGET ${_target}_static_analysis PRE_BUILD
             WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-            COMMAND ${CPPCHECK_BIN} ${tmp_args} ${cppcheck_includes} ${${_sources}}
+            COMMAND ${CPPCHECK_BIN} ${tmp_args} ${cppcheck_includes} ${_sources}
             DEPENDS ${${_sources}}
             COMMENT "Running cppcheck: ${_target}"
             VERBATIM)
