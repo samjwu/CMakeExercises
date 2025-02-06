@@ -8,20 +8,4 @@ endif()
 
 project(exercise)
 
-# add custom directory to module path
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
-
-find_package(CppCheck)
-
-# declare var to be defined in custom module
-set(ALL_ANALYSIS_TARGETS "" CACHE STRING "List of all static analysis targets")
-
 add_subdirectory(calculator)
-
-message(STATUS "ALL_ANALYSIS_TARGETS: ${ALL_ANALYSIS_TARGETS}")
-
-if(CPPCHECK_FOUND)
-    add_custom_target(static_analysis)
-    ADD_DEPENDENCIES(static_analysis ${ALL_ANALYSIS_TARGETS})
-    set_target_properties(static_analysis PROPERTIES EXCLUDE_FROM_ALL TRUE)
-endif()
