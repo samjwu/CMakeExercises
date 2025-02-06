@@ -1,7 +1,7 @@
-#include "calculator.h"
+#include "addition.h"
 
 int main() {
-    Calculator calc1;
+    Addition calc1;
     calc1.Add(1, 2);
 
     return 0;
