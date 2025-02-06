@@ -8,5 +8,7 @@ endif()
 
 project(exercise)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_subdirectory(addition)
 add_subdirectory(subtraction)
