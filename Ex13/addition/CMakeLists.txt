@@ -1,7 +1,7 @@
-project(calculator)
+project(addition)
 
 set(SOURCES
-    src/calculator.cpp
+    src/addition.cpp
     src/main.cpp
 )
 
