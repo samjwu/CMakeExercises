@@ -8,4 +8,5 @@ endif()
 
 project(exercise)
 
-add_subdirectory(calculator)
+add_subdirectory(addition)
+add_subdirectory(subtraction)
