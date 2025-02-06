@@ -17,3 +17,4 @@ CMakeUserPresets.json
 *.a
 *.dll
 build/
+.vscode
